@@ -4,7 +4,13 @@
 	"private": "true",
 	"dependencies": {
 		"connect": "2.7.0",
-        "mime": "latest"
+		"mime": "latest"
+	},
+	"subdomain": "jahmbo.offline_app",
+	"scripts": {
+		"start": "server.js"
+	},
+	"engines": {
+		"node": "0.8.x"
 	}
 }
-
