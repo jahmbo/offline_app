@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html manifest="offline.appcache">
+<head>
+    <title>Offline application demo</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="#">Pages:</a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="localstorage.html">Local Storage</a></li>
+            <li> <a href="online.html">Only Online</a></li>
+            <li> <a href="online1.html">Online with online fallback</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <img src="img/pobrane.jpg">
+        </div>
+        <div class="span10">
+            <h1>Local storage</h1>
+            <div id="logger">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/offline.js"></script>
+</body>
+</html>
