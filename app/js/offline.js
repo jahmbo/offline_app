@@ -8,12 +8,42 @@
         }).prependTo(logger);
 
     };
+    var appCache = window.applicationCache;
+
+    var getStatus = function(){
+
+        switch (appCache.status) {
+            case appCache.UNCACHED: // UNCACHED == 0
+                return 'UNCACHED';
+                break;
+            case appCache.IDLE: // IDLE == 1
+                return 'IDLE';
+                break;
+            case appCache.CHECKING: // CHECKING == 2
+                return 'CHECKING';
+                break;
+            case appCache.DOWNLOADING: // DOWNLOADING == 3
+                return 'DOWNLOADING';
+                break;
+            case appCache.UPDATEREADY:  // UPDATEREADY == 4
+                return 'UPDATEREADY';
+                break;
+            case appCache.OBSOLETE: // OBSOLETE == 5
+                return 'OBSOLETE';
+                break;
+            default:
+                return 'UKNOWN CACHE STATUS';
+                break;
+        };
+
+    };
 
     if(window.navigator.onLine){
         log('online');
     }else{
         log('offline');
     }
+
 
     $(window).on('online', function(){
         log('online', 'success');
@@ -22,8 +52,6 @@
     $(window).on('offline', function(){
         log('offline', 'error');
     });
-
-    var appCache = window.applicationCache;
 
     // Check if a new cache is available on page load.
     window.addEventListener('load', function(e) {
@@ -45,11 +73,11 @@
 
 
     function handleCacheEvent(e) {
-        log(e.type, 'success');
+        log('[window.applicationCache] Status: ' + getStatus() + ', Event: ' + e.type, 'success');
     }
 
     function handleCacheError(e) {
-        log(e.type, 'error');
+        log("Can't download appcache file", 'error');
     };
 
 // Fired after the first cache of the manifest.
