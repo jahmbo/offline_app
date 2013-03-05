@@ -61,9 +61,9 @@
                 // Browser downloaded a new app cache.
                 // Swap it in and reload the page to get the new hotness.
                 appCache.swapCache();
-                if (confirm('A new version of this site is available. Load it?')) {
+//                if (confirm('A new version of this site is available. Load it?')) {
                     window.location.reload();
-                }
+//                }
             } else {
                 // Manifest didn't changed. Nothing new to server.
             }
